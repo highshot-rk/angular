@@ -1,0 +1,38 @@
+
+<div class="mt-6 center">
+  <div>
+    <h1>Transaction Test</h1>
+    <div class="card" style="width: max-content;">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <!-- If you click Id, order -->
+              <th scope="col" (click)="order()" class="handy-cursor">ID</th>
+              <th scope="col">Sender</th>
+              <th scope="col">Receiver</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Total Paid Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let parent_item of parentList" routerLink="/child/{{parent_item.id}}">
+              <th scope="row">{{parent_item.id}}</th>
+              <td>{{parent_item.sender}}</td>
+              <td>{{parent_item.receiver}}</td>
+              <td>{{parent_item.totalAmount}}</td>
+              <td>{{parent_item.total_paid}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#" (click)="previousPage()">Previous</a></li>
+            <li class="page-item" [ngClass]="{'active': page == currentPage}" *ngFor="let page of totalPage"><a class="page-link" (click)="changePageHandler(page)">{{page}}</a></li>
+            <li class="page-item"><a class="page-link" href="#" (click)="nextPage()">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

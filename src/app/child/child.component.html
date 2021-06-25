@@ -1,0 +1,33 @@
+
+<div class="mt-6 center">
+  <div>
+    <h1>Transaction Test</h1>
+    <div class="card" style="width: max-content;">
+      <div class="card-body">
+        <button class="btn btn-primary" routerLink="/">Back</button>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <!-- If you click Id, order -->
+              <th scope="col" (click)="order()" class="handy-cursor">ID</th>
+              <th scope="col">Sender</th>
+              <th scope="col">Receiver</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Paid Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let child_item of selectedChildArr">
+              <th scope="row">{{child_item.id}}</th>
+              <td>{{selectedParent.sender}}</td>
+              <td>{{selectedParent.receiver}}</td>
+              <td>{{selectedParent.totalAmount}}</td>
+              <td>{{child_item.paidAmount}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
